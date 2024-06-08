@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^1.1.12",
+    "svelte": "file:./svelte-5"
+  }
+}
