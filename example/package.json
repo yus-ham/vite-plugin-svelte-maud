@@ -7,9 +7,8 @@
     "dev": "vite dev"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "bun-types": "^1.1.12",
-    "svelte": "file:../svelte-5",
+    "svelte": "github:yus-ham/svelte5-parser-plugin",
     "vite": "^5.0.13"
   }
 }

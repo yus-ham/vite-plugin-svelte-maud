@@ -236,6 +236,12 @@ export default function element(parser) {
 		element.attributes.push(attribute);
 	}
 
+	if (element.name === 'html') {
+		parser.root.name = 'html';
+		parser.root.attributes = element.attributes;
+		return;
+	}
+
 	if (element.type === 'SvelteComponent') {
 		const index = element.attributes.findIndex(
 			/** @param {any} attr */
@@ -345,7 +351,8 @@ export default function element(parser) {
 			if (current.css) e.style_duplicate(start);
 			current.css = content;
 		}
-		parser.index += content.content.end
+
+		parser.index = content.content.end
 		return;
 	}
 
@@ -462,6 +469,7 @@ const regex_attribute_value = /^(?:"([^"]*)"|'([^'])*'|([^>\s]+))/;
  * @returns {import('svelte/compiler').Attribute | null}
  */
 function read_static_attribute(parser) {
+	parser.allow_whitespace();
 	const start = parser.index;
 
 	const name = parser.read_until(regex_token_ending_character);

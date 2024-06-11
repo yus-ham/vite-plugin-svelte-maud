@@ -1,0 +1,6 @@
+html lang="en" {
+    head {
+        title { "Svelte 5 Maud" }
+    }
+    script type="main" src="/src/counter.maud" target="document.body" {}
+}
